@@ -3,7 +3,7 @@
     <style>
     body
     {
-      font-family: Meslo;
+    
     }
     </style>
   </head>
@@ -27,6 +27,7 @@ fetch(URL)
 
 function dodaj1() {
   fetch(URL, {
+    redirect: "follow",
     method: "POST"
   })
   .then(() => fetch(URL))
