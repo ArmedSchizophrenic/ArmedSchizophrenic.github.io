@@ -1,15 +1,20 @@
-<h1>hello wolrd</h1>
+<<html>
+  <body>
+    <h1>hello wolrd</h1>
 
-<button onclick="onclick()">button</button>
+    <button onclick="onclick()">button</button>
 
-<p>Liczba kliknięć: <span id="licznik">0</span></p>
+    <p>
+      Liczba kliknięć: <span id="licznik">0</span>
+    </p>
 
-<script>
-  let num = 0;
-  function onclick()
-  {
-  num++;
-  document.getElementById("licznik").textContent=num
-  }
-</script>
-
+    <script>
+    let num = 0;
+    function onclick()
+    {
+      num++;
+      document.getElementById("licznik").textContent=num
+    }
+    </script>
+  </body> 
+</html>
