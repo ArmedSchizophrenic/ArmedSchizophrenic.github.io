@@ -26,9 +26,11 @@ fetch(URL)
   .catch(err => console.error("GET error:", err));
 
 function dodaj1() {
-  fetch(URL, {
-    redirect: "follow",
-    method: "POST"
+ fetch(URL, {
+  method: "POST",
+  headers: { "Content-Type": "text/plain;charset=utf-8" },
+  body: JSON.stringify({})
+})
   })
   .then(() => fetch(URL))
   .then(res => res.json())
