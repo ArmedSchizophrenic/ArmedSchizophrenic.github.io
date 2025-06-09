@@ -14,27 +14,30 @@
       Liczba kliknięć: <span id="licznik">0</span>
     </p>
 
-   <script>
-let num = 0;
+ <script>
+const licznikEl = document.getElementById("licznik");
+const URL = "https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec";
 
-function dodaj1() {
-  num++;
-  document.getElementById("licznik").textContent = num;
-
-  fetch("https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec", {
-    method: "POST",
-    body: new URLSearchParams({ wpis: "Kliknięcie #" + num })
-  });
-}
-
-
-fetch("https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec")
+fetch(URL)
   .then(res => res.json())
   .then(data => {
-    console.log("Zawartość arkusza:", data);
+    licznikEl.textContent = data.licznik;
   })
-  .catch(err => console.error(err));
+  .catch(err => console.error("GET error:", err));
+
+function dodaj1() {
+  fetch(URL, {
+    method: "POST"
+  })
+  .then(() => fetch(URL)) // pobierz zaktualizowaną wartość
+  .then(res => res.json())
+  .then(data => {
+    licznikEl.textContent = data.licznik;
+  })
+  .catch(err => console.error("POST error:", err));
+}
 </script>
+
   </body> 
 
 </html>
