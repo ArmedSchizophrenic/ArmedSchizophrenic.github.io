@@ -24,12 +24,12 @@
       document.getElementById("licznik").textContent=num;
     }
 
-    fetch("https://script.google.com/macros/s/AKfycbxg5VAIPLeircGFzgM9NUUWAWQkvyv2DQcclg_qwYUTtIdanIrfK9ISDkRS4_j7WxCrXg/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyKj4F9IgQhxxvMhjRskkUMVxUUgf0njpyBBuOuI_RLDsAS7bhW5PErKIt_YFNqogQ4/exec", {
       method: "POST",
       body: new URLSearchParams({ wpis: "Twoja zawartość" })
     });
 
-    fetch("https://script.google.com/macros/s/AKfycbxg5VAIPLeircGFzgM9NUUWAWQkvyv2DQcclg_qwYUTtIdanIrfK9ISDkRS4_j7WxCrXg/exec")
+    fetch("https://script.google.com/macros/s/AKfycbyKj4F9IgQhxxvMhjRskkUMVxUUgf0njpyBBuOuI_RLDsAS7bhW5PErKIt_YFNqogQ4/exec")
       .then(res => res.json())
       .then(data => {
         console.log(data);
