@@ -15,7 +15,7 @@
     </p>
 
  <script>
-const licznikEl = document.getElementById("licznik");
+const licznikEl = document.getElementById("data");
 const URL = "https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec";
 
 fetch(URL)
@@ -29,7 +29,7 @@ function dodaj1() {
   fetch(URL, {
     method: "POST"
   })
-  .then(() => fetch(URL)) // pobierz zaktualizowaną wartość
+  .then(() => fetch(URL))
   .then(res => res.json())
   .then(data => {
     licznikEl.textContent = data.licznik;
