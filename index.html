@@ -3,7 +3,7 @@
     <style>
     body
     {
-      font-family: MesloLGS;
+      font-family: Meslo;
     }
     </style>
   </head>
@@ -19,10 +19,22 @@
     <script>
     let num = 0;
     function dodaj1()
-    {
+  {
       num++;
       document.getElementById("licznik").textContent=num;
     }
+
+    fetch("https://script.google.com/macros/u/2/s/AKfycbxg5VAIPLeircGFzgM9NUUWAWQkvyv2DQcclg_qwYUTtIdanIrfK9ISDkRS4_j7WxCrXg/exec", {
+      method: "POST",
+      body: new URLSearchParams({ wpis: "Twoja zawartość" })
+    });
+
+    fetch("https://script.google.com/macros/u/2/s/AKfycbxg5VAIPLeircGFzgM9NUUWAWQkvyv2DQcclg_qwYUTtIdanIrfK9ISDkRS4_j7WxCrXg/exec")
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+
     </script>
   </body> 
 
