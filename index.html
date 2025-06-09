@@ -1,46 +1,41 @@
 <html>
   <head>
     <style>
-    body
-    {
-    
-    }
+      body {
+        font-family: sans-serif;
+      }
     </style>
   </head>
   <body>
-    <h1>hello wolrd</h1>
+    <h1>hello world</h1>
     <button onclick="dodaj1()">button</button>
     <p>
       Liczba kliknięć: <span id="licznik">0</span>
     </p>
 
- <script>
-const licznikEl = document.getElementById("data");
-const URL = "https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec";
+    <script>
+      const URL = "https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec";
 
-fetch(URL)
-  .then(res => res.json())
-  .then(data => {
-    licznikEl.textContent = data.licznik;
-  })
-  .catch(err => console.error("GET error:", err));
+      function updateLicznik() {
+        const script = document.createElement("script");
+        script.src = `${URL}?callback=handleData`;
+        document.body.appendChild(script);
+      }
 
-function dodaj1() {
- fetch(URL, {
-  method: "POST",
-  headers: { "Content-Type": "text/plain;charset=utf-8" },
-  body: JSON.stringify({})
-})
-  })
-  .then(() => fetch(URL))
-  .then(res => res.json())
-  .then(data => {
-    licznikEl.textContent = data.licznik;
-  })
-  .catch(err => console.error("POST error:", err));
-}
-</script>
+      function handleData(data) {
+        document.getElementById("licznik").textContent = data.licznik;
+      }
 
-  </body> 
+      function dodaj1() {
+        fetch(URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({})
+        }).then(updateLicznik);
+      }
 
+      updateLicznik(); // Załaduj przy starcie
+    </script>
+  </body>
 </html>
+
