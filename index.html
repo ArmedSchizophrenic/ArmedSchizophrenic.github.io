@@ -23,7 +23,7 @@
       }
 
       function handleData(data) {
-        document.getElementById("licznik").textContent = data.licznik;
+        document.getElementById("data").textContent = data.licznik;
       }
 
       function dodaj1() {
@@ -34,7 +34,7 @@
         }).then(updateLicznik);
       }
 
-      updateLicznik(); // Załaduj przy starcie
+      updateLicznik();
     </script>
   </body>
 </html>
