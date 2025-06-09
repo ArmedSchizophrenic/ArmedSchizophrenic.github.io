@@ -22,12 +22,8 @@ function dodaj1() {
   document.getElementById("licznik").textContent = num;
 
   fetch("https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec", {
-    redirect: "follow",
     method: "POST",
-    body: new URLSearchParams({ wpis: "Kliknięcie #" + num }),
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    }
+    body: new URLSearchParams({ wpis: "Kliknięcie #" + num })
   });
 }
 
