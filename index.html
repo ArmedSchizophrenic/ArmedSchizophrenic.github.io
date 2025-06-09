@@ -14,27 +14,25 @@
     </p>
 
     <script>
-      const URL = "https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec";
+    const URL = "https://script.google.com/macros/s/AKfycbz_AAUoEdaznBITVaKA29MULcPIDDIk9pub9OzwRKbOGnRFMfov3H0xyqXyO1kE3POz/exec";
 
-      function updateLicznik() {
-        const script = document.createElement("script");
-        script.src = `${URL}?callback=handleData`;
-        document.body.appendChild(script);
-      }
+    function updateLicznik() {
+      const script = document.createElement("script");
+      script.src = `${URL}?callback=handleData`;
+      document.body.appendChild(script);
+    }
 
-      function handleData(data) {
-        document.getElementById("data").textContent = data.licznik;
-      }
+    function handleData(data) {
+      document.getElementById("licznik").textContent = data.licznik;
+    }
 
-      function dodaj1() {
-        fetch(URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({})
-        }).then(updateLicznik);
-      }
+    function dodaj1() {
+      const script = document.createElement("script");
+      script.src = `${URL}?dodaj=1&callback=handleData`;
+      document.body.appendChild(script);
+    }
 
-      updateLicznik();
+    updateLicznik(); // ładuj na start
     </script>
   </body>
 </html>
