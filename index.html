@@ -9,32 +9,31 @@
   </head>
   <body>
     <h1>hello wolrd</h1>
-
     <button onclick="dodaj1()">button</button>
-
+    <button onclick="test()">test</button>
     <p>
       Liczba kliknięć: <span id="licznik">0</span>
     </p>
 
     <script>
-    let num = 0;
-    function dodaj1()
-  {
-      num++;
-      document.getElementById("licznik").textContent=num;
-    }
+let num = 0;
 
-    fetch("https://script.google.com/macros/s/AKfycbyKj4F9IgQhxxvMhjRskkUMVxUUgf0njpyBBuOuI_RLDsAS7bhW5PErKIt_YFNqogQ4/exec", {
-      method: "POST",
-      body: new URLSearchParams({ wpis: "Twoja zawartość" })
-    });
+function dodaj1() {
+  num++;
+  document.getElementById("licznik").textContent = num;
 
-    fetch("https://script.google.com/macros/s/AKfycbyKj4F9IgQhxxvMhjRskkUMVxUUgf0njpyBBuOuI_RLDsAS7bhW5PErKIt_YFNqogQ4/exec")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+  fetch("https://script.google.com/macros/s/AKfycbyKj4F9IgQhxxvMhjRskkUMVxUUgf0njpyBBuOuI_RLDsAS7bhW5PErKIt_YFNqogQ4/exec", {
+    method: "POST",
+    body: new URLSearchParams({ wpis: "Kliknięcie #" + num })
+  });
+}
 
+fetch("https://script.google.com/macros/s/AKfycbyKj4F9IgQhxxvMhjRskkUMVxUUgf0njpyBBuOuI_RLDsAS7bhW5PErKIt_YFNqogQ4/exec")
+  .then(res => res.json())
+  .then(data => {
+    console.log("Zawartość arkusza:", data);
+  })
+  .catch(err => console.error(err));
     </script>
   </body> 
 
